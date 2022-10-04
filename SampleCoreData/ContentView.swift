@@ -31,19 +31,21 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(fetchedMemoList) { memo in
-                    VStack {
-                        Text(memo.title ?? "")
-                            .font(.title)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .lineLimit(1)
-                        HStack {
-                            Text(memo.stringUpdatedAt)
-                                .font(.caption)
+                    NavigationLink(destination: EditMemoView(memo: memo)) {
+                        VStack {
+                            Text(memo.title ?? "")
+                                .font(.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .lineLimit(1)
-                            Text(memo.content ?? "")
-                                .font(.caption)
-                                .lineLimit(1)
-                            Spacer()
+                            HStack {
+                                Text(memo.stringUpdatedAt)
+                                    .font(.caption)
+                                    .lineLimit(1)
+                                Text(memo.content ?? "")
+                                    .font(.caption)
+                                    .lineLimit(1)
+                                Spacer()
+                            }
                         }
                     }
                 }
@@ -60,7 +62,7 @@ struct ContentView: View {
             }
         }
     }
-    
+    // 削除時の処理
     private func deleteMemo(offsets: IndexSet) {
         offsets.forEach { index in
             viewContext.delete(fetchedMemoList[index])
