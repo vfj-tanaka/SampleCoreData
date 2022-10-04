@@ -47,10 +47,26 @@ struct ContentView: View {
                         }
                     }
                 }
+                .onDelete(perform: deleteMemo)
             }
             .navigationTitle("メモ")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: AddMemoView()) {
+                        Text("新規作成")
+                    }
+                }
+            }
         }
+    }
+    
+    private func deleteMemo(offsets: IndexSet) {
+        offsets.forEach { index in
+            viewContext.delete(fetchedMemoList[index])
+        }
+        // 保存を忘れない
+        try? viewContext.save()
     }
 }
 

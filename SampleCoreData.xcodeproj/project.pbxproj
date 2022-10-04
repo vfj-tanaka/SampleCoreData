@@ -18,6 +18,7 @@
 		FC05044228EBD25200630663 /* SampleCoreDataUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05044128EBD25200630663 /* SampleCoreDataUITestsLaunchTests.swift */; };
 		FC05045028EC056A00630663 /* SampleCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05044E28EC056A00630663 /* SampleCoreData+CoreDataClass.swift */; };
 		FC05045128EC056A00630663 /* SampleCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05044F28EC056A00630663 /* SampleCoreData+CoreDataProperties.swift */; };
+		FC05045328EC1CE400630663 /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05045228EC1CE400630663 /* AddMemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		FC05044128EBD25200630663 /* SampleCoreDataUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCoreDataUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC05044E28EC056A00630663 /* SampleCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC05044F28EC056A00630663 /* SampleCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC05045228EC1CE400630663 /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				FC05041F28EBD24E00630663 /* SampleCoreDataApp.swift */,
 				FC05042128EBD24E00630663 /* ContentView.swift */,
+				FC05045228EC1CE400630663 /* AddMemoView.swift */,
 				FC05042328EBD25200630663 /* Assets.xcassets */,
 				FC05042828EBD25200630663 /* Persistence.swift */,
 				FC05042A28EBD25200630663 /* SampleCoreData.xcdatamodeld */,
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC05045328EC1CE400630663 /* AddMemoView.swift in Sources */,
 				FC05045128EC056A00630663 /* SampleCoreData+CoreDataProperties.swift in Sources */,
 				FC05042C28EBD25200630663 /* SampleCoreData.xcdatamodeld in Sources */,
 				FC05042928EBD25200630663 /* Persistence.swift in Sources */,
