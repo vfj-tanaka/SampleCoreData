@@ -19,6 +19,7 @@
 		FC05045028EC056A00630663 /* SampleCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05044E28EC056A00630663 /* SampleCoreData+CoreDataClass.swift */; };
 		FC05045128EC056A00630663 /* SampleCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05044F28EC056A00630663 /* SampleCoreData+CoreDataProperties.swift */; };
 		FC05045328EC1CE400630663 /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05045228EC1CE400630663 /* AddMemoView.swift */; };
+		FC05045528EC270000630663 /* EditMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC05045428EC270000630663 /* EditMemoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		FC05044E28EC056A00630663 /* SampleCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC05044F28EC056A00630663 /* SampleCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC05045228EC1CE400630663 /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
+		FC05045428EC270000630663 /* EditMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				FC05041F28EBD24E00630663 /* SampleCoreDataApp.swift */,
 				FC05042128EBD24E00630663 /* ContentView.swift */,
 				FC05045228EC1CE400630663 /* AddMemoView.swift */,
+				FC05045428EC270000630663 /* EditMemoView.swift */,
 				FC05042328EBD25200630663 /* Assets.xcassets */,
 				FC05042828EBD25200630663 /* Persistence.swift */,
 				FC05042A28EBD25200630663 /* SampleCoreData.xcdatamodeld */,
@@ -276,6 +279,7 @@
 				FC05045128EC056A00630663 /* SampleCoreData+CoreDataProperties.swift in Sources */,
 				FC05042C28EBD25200630663 /* SampleCoreData.xcdatamodeld in Sources */,
 				FC05042928EBD25200630663 /* Persistence.swift in Sources */,
+				FC05045528EC270000630663 /* EditMemoView.swift in Sources */,
 				FC05042228EBD24E00630663 /* ContentView.swift in Sources */,
 				FC05045028EC056A00630663 /* SampleCoreData+CoreDataClass.swift in Sources */,
 				FC05042028EBD24E00630663 /* SampleCoreDataApp.swift in Sources */,
