@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct SampleCoreDataApp: App {
+    // NSPersistentContainerの初期化
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
+            // @Environment(\.managedObjectContext)にNSManagedObjectContextを登録する処理
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
