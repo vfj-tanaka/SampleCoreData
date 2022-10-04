@@ -9,79 +9,53 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    /*
+     被管理オブジェクトコンテキスト(ManagedObjectContext)は
+     データの生成、保存、取得といったデータベース操作に必要な操作を行う為のオブジェクト
+     */
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    /*
+     @FetchRequestを使ってデータベースを検索し、対象データ群をitemsプロパティに格納
+     sortDescriptorsで検索結果のソート条件（Itemテーブルのtimestamp属性が昇順）を指定
+     animationで取得した検索結果の変更時に使用されるアニメーションタイプを.defaultに指定
+     */
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+//        animation: .default)
+    
+    @FetchRequest(entity: SampleCoreData.entity(), sortDescriptors: [NSSortDescriptor(key: "updatedAt", ascending: false)], animation: .default)
+    
+    private var fetchedMemoList: FetchedResults<SampleCoreData>
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                ForEach(fetchedMemoList) { memo in
+                    VStack {
+                        Text(memo.title ?? "")
+                            .font(.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .lineLimit(1)
+                        HStack {
+                            Text(memo.stringUpdatedAt)
+                                .font(.caption)
+                                .lineLimit(1)
+                            Text(memo.content ?? "")
+                                .font(.caption)
+                                .lineLimit(1)
+                            Spacer()
+                        }
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            .navigationTitle("メモ")
+            .navigationBarTitleDisplayMode(.automatic)
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_PreviewProvider {
+    
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
